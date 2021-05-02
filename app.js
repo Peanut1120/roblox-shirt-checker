@@ -1,4 +1,4 @@
-// this is an example. do not use it as a client sided app.
+// this is an example. do not use it as a client sided app, instead copy the logic and implement it into a discord bot.
 
 const axios = require('axios')
 const readline = require('readline')
