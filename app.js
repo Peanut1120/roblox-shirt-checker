@@ -1,4 +1,4 @@
-// this is an example. do not use it as a client sided app, instead copy the logic and implement it into a discord bot.
+// this is an example. do not use it as a client sided app.
 
 const axios = require('axios')
 const readline = require('readline')
@@ -46,10 +46,7 @@ const userId = rl.question("What is your roblox userId? ", async a => {
     rl.on('line', async (input) => {
         if(input.toLowerCase() != "done") return
         const about = await axios.get(`https://users.roblox.com/v1/users/${a}`)
-        if(about.data.description != ranWords) {
-            console.log("The text on your profile doesn't match the words given.")
-            process.exit()
-        }
+        if(about.data.description != ranWords) return console.log("The text on your profile doesn't match the words given.")
         axios.get(`https://www.roblox.com/users/inventory/list-json?assetTypeId=11&itemsPerPage=100&pageNumber=1&sortOrder=Desc&userId=${a}`)
         .then((res) => {
             let shirtFound;
